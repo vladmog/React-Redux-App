@@ -1,7 +1,31 @@
+import {GET_START, GET_SUCCESS, GET_FAILURE} from '../actions/actions';
+
 let defaultState = {
-    aa: 11
+    launches: []
 }
 
+//title
+//release_date
+//image_url
+//url
+
 export default function reducer (state = defaultState, action){
-    return state;
+    switch(action.type){
+        case GET_START:
+            return {
+                ...state
+            }      
+        case GET_SUCCESS:
+            return {
+                ...state,
+                launches: action.payload.data
+            }          
+        case GET_FAILURE:
+            return {
+                ...state
+            } 
+        default:
+            return state
+    }
 }
+
